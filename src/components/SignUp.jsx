@@ -25,11 +25,18 @@ const SignUp = () => {
                 const userData = await authService.getCurrentUser(data);
                 if (userData) {
                     dispatch(authLogin(userData));
+
+                    const avatarUrl = authService.avatar({ Name: userData.name });
+                    // console.log(userData.name);
+                    console.log(avatarUrl);
+                    
+                    
                     const userDetail = await appwriteService.createUserDetails(userData.$id, userData.name);
                     console.log(userDetail);
 
-                    const AuthUser = await appwriteService.createAuthUser(userData.$id, userData.name);
+                    const AuthUser = await appwriteService.createAuthUser(userData.$id, userData.name, avatarUrl);
                     console.log(AuthUser);
+                    
 
                     if (userDetail && AuthUser) {
                         navigate("/login")

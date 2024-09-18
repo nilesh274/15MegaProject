@@ -1,3 +1,4 @@
+import ProfilePost from '../components/ProfilePost.jsx';
 import conf from '../conf/conf.js'
 import { Client, ID, Databases, Storage, Query } from "appwrite";
 
@@ -33,6 +34,7 @@ export class Service{
             )
         } catch (error) {
             console.log("Appwrite serive :: createPost :: error", error);
+            // throw error;
         }
     }
 
@@ -100,7 +102,7 @@ export class Service{
         }
     }
 
-    async getAllPost(queries = [Query.equal("status", "active")]){
+    async getAllPost(queries = [Query.equal("status", "Active")]){
         try{
             return await this.databases.listDocuments(
                 conf.appwriteDatabaseId,
@@ -179,7 +181,7 @@ export class Service{
 
     //Auth user
     
-    async createAuthUser(userId, name){
+    async createAuthUser(userId, name, avatar){
         try {
             return await this.databases.createDocument(
                 conf.appwriteDatabaseId,
@@ -187,7 +189,8 @@ export class Service{
                 userId,
                 {
                     UserId : userId,
-                    Name: name
+                    Name: name,
+                    ProfilePhoto: avatar
                 }
             )
         } catch (error) {

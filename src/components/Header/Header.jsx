@@ -40,7 +40,7 @@ const Header = () => {
 
 
   return (
-    <div className='text-black'>
+    <div className='text-black '>
       <header className='bg-[#1a1b33] w-full py-3 sticky top-0 z-50'>
         <nav className='flex sm:flex-row sm:justify-between items-center px-4'>
           <div className='flex items-center justify-between sm:justify-start md:justify-start lg:justify-start mr-auto'>

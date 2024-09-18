@@ -8,7 +8,19 @@ import { FollowBtn } from './index';
 
 const PostCard = ({ $id, title, featuredImage, userName, userId }) => {
     const [userPost, setUserPost] = useState(false);
+    const [postPhoto, setPostPhoto] = useState("");
     const userData = useSelector(state => state.auth.userData);
+    // console.log(userId);
+
+    useEffect(() => {
+        const ProfileP = async () => {
+            const Avatar = await appwriteService.getAuthUser(userId);
+            // console.log(Avatar);
+            setPostPhoto(Avatar.ProfilePhoto);
+            console.log(postPhoto);
+        }
+        ProfileP();
+    }, [userId])
 
     useEffect(() => {
         if (userData && userData.$id && userId) {
@@ -20,7 +32,7 @@ const PostCard = ({ $id, title, featuredImage, userName, userId }) => {
         <div className="flex flex-col border-[1px] rounded-2xl w-full mx-auto p-4 dark:bg-[#1a1b33] h-auto">
             <Link to={`/post/${$id}`}>
                 <div className="flex items-center mb-4">
-                    <img src={userImage} alt="profilePhoto" className="h-7 w-7 sm:w-8 sm:h-8 md:w-8 md:h-8 lg:w-10 lg:h-10 rounded-full" />
+                    <img src={postPhoto || userImage} alt="profilePhoto" className="h-7 w-7 sm:w-8 sm:h-8 md:w-8 md:h-8 rounded-full" />
                     <p className="ml-3 text-left font-bold text-xs sm:text-sm md:text-md lg:text-lg dark:text-slate-200">{userName}</p>
                 </div>
                 <img
@@ -38,7 +50,7 @@ const PostCard = ({ $id, title, featuredImage, userName, userId }) => {
         <div className="flex flex-col border-[1px] rounded-2xl w-full mx-auto p-4 dark:bg-[#1a1b33] h-auto">
             <Link to={`/post/${$id}`}>
                 <div className="flex items-center mb-4">
-                    <img src={userImage} alt="profilePhoto" className="h-7 w-7 sm:w-8 sm:h-8 md:w-8 md:h-8 lg:w-10 lg:h-10 rounded-full" />
+                    <img src={postPhoto || userImage} alt="profilePhoto" className="h-7 w-7 sm:w-8 sm:h-8 md:w-8 md:h-8 rounded-full" />
                     <p className="ml-3 text-left font-bold text-xs sm:text-sm md:text-md lg:text-lg dark:text-slate-200">{userName}</p>
                 </div>
                 <img

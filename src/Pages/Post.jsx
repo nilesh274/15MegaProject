@@ -5,8 +5,9 @@ import parse from "html-react-parser";
 import LikeBtn from '../components/LikeBtn';
 import userImage from '../components/image/userImage.jpg';
 import FollowBtn from "../components/FollowBtn";
-import { useSelector } from 'react-redux'
+// import { useSelector } from 'react-redux'
 import { check, no } from "../components";
+import authService from "../appwrite/Auth";
 
 export default function Post() {
   const [post, setPost] = useState(null);
@@ -14,12 +15,33 @@ export default function Post() {
   const [loading, setLoading] = useState(true);
   const { slug } = useParams();
   const navigate = useNavigate();
-  const userData = useSelector(state => state.auth.userData);
+  // const userData = useSelector(state => state.auth.userData);
   const [DeleteMsg, setDeleteMsg] = useState(false);
   const [NotDeleteMsg, setNotDeleteMsg] = useState(false);
+  const [postPhoto, setPostPhoto] = useState("");
+  const [userData, setUserData] = useState({});
+
+  useEffect(() => {
+    const getcurrentuser = async () => {
+      const user = await authService.getCurrentUser();
+      setUserData(user)
+    }
+    getcurrentuser();
+  }, [])
+
+  // console.log(post, "post");
+  
+  useEffect(() => {
+    const ProfileP = async () => {
+      const Avatar = await appwriteService.getAuthUser(post?.userId);
+      // console.log(Avatar);
+      setPostPhoto(Avatar.ProfilePhoto);
+      console.log(postPhoto);
+    }
+    ProfileP();
+  }, [post?.userId])
 
   const isAuthor = post && userData ? post.userId === userData.$id : false;
-
 
   useEffect(() => {
     if (post && post.userId === userData.$id) {
@@ -51,6 +73,7 @@ export default function Post() {
     }
   }, [slug, navigate]);
 
+
   const deletePost = () => {
     try {
       appwriteService.deletePost(post.$id).then((status) => {
@@ -81,14 +104,14 @@ export default function Post() {
     <div className="flex flex-col items-center justify-center min-h-full bg-gray-100 p-10 sm:p-12 md:p-14 lg:p-16 dark:bg-[#000000]">
       <div className="w-3xl w-full bg-white shadow-lg rounded-lg overflow-hidden dark:bg-[#1a1b33]">
         <div className="flex flex-wrap items-center sm:mb-4 px-6 pt-6">
-          <img src={userImage} alt="profilePhoto" className="h-14 w-14 sm:h-20 sm:w-20 md:h-24 md:w-24 rounded-full object-cover" />
+          <img src={postPhoto || userImage} alt="profilePhoto" className="dark:text-white h-10 w-10 sm:h-12 sm:w-12 md:h-14 md:w-14 lg:w-16 lg:h-16 rounded-full object-cover" />
           <p className="ml-3 text-left font-bold text-xl sm:text-2xl md:text-3xl lg:text-4xl dark:text-slate-200">{post.userName}</p>
         </div>
         <div className="flex justify-center p-6">
           <img
             src={appwriteService.getFilePreview(post.featuredImage)}
             alt={post.title}
-            className="w-full max-w-md sm:max-w-lg lg:max-w-2xl object-cover rounded-lg shadow-lg"
+            className="w-full max-w-sm sm:max-w-lg lg:max-w-xl object-cover rounded-lg shadow-lg"
           />
         </div>
         {isAuthor && (

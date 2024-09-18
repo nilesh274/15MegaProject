@@ -13,6 +13,7 @@ const Profile = () => {
     const [follower, setFollower] = useState(0);
     const [following, setFollowing] = useState(0);
     const [userData, setUserData] = useState({});
+    const [photo, setPhoto] = useState("");
 
     useEffect(() => {
         const getcurrentuser = async () => {
@@ -23,13 +24,24 @@ const Profile = () => {
     }, [])
 
     useEffect(() => {
-        console.log("User data in Profile:", userData);
+        const ProfileP = async () => {
+            const Avatar = await appwriteService.getAuthUser(userData?.$id);
+            // console.log(Avatar);
+            setPhoto(Avatar.ProfilePhoto);
+            // console.log(photo);
+        }
+        ProfileP();
+    }, [userData?.$id])
+
+    useEffect(() => {
+        // console.log("User data in Profile:", userData);
         if (userData?.$id) {
             const getPost = async () => {
                 await appwriteService.getAllPosts().then((posts) => {
                     if (posts) {
                         setPosts(posts.documents);
                     }
+                    // console.log(posts);
                 });
             };
             getPost();
@@ -37,7 +49,7 @@ const Profile = () => {
     }, [userData?.$id]);
 
     useEffect(() => {
-        console.log("User data in Profile for followers:", userData);
+        // console.log("User data in Profile for followers:", userData);
         if (userData?.$id) {
             const getUser = async () => {
                 const userDetail = await appwriteService.getUserDetails(userData?.$id);
@@ -60,6 +72,7 @@ const Profile = () => {
                 });
                 const followers = await Promise.all(followerDetailsPromises);
                 setFollowersDetails(followers);
+                // console.log(followersDetails);        
             }
             setIsVisible(!isVisible);
         }
@@ -73,7 +86,9 @@ const Profile = () => {
                     return await appwriteService.getAuthUser(followerId);
                 });
                 const follow = await Promise.all(followerDetailsPromises);
+                // console.log(follow, "follow");
                 setFollowingDetails(follow);
+                
             }
             setIsVisibleFollow(!isVisibleFollow);
         }
@@ -86,11 +101,11 @@ const Profile = () => {
                     <p className='text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold font-sans dark:text-slate-200'>Profile</p>
                 </div>
                 <div className='flex mr-auto flex-wrap lg:gap-96 justify-center items-center'>
-                    <div className='flex gap-5 lg:gap-24 items-center pb-10 mr-auto mb-7'>
-                        <img src={userImage} alt="Profile Photo" className='rounded-full h-[45px] w-[45px] sm:h-[55px] sm:w-[55px] md:h-[65px] md:w-[65px] lg:h-[75px] lg:w-[75px] hover:scale-125 duration-1000 dark:hover:scale-110' />
+                    <div className='flex gap-5 lg:gap-15 items-center pb-10 mr-auto mb-7'>
+                        <img src={photo || userImage} alt="Profile Photo" className='dark:text-white rounded-full h-[35px] w-[35px] sm:h-[40px] sm:w-[40px] md:h-[45px] md:w-[45px] lg:w-[50px] lg:h-[50px] hover:scale-105 duration-1000 dark:hover:scale-110' />
                         <div>
-                            <p className='text-[12px] sm:text-lg md:text-xl lg:text-2xl font-bold font-sans dark:text-slate-200'>{userData?.name}</p>
-                            <p className='font-semibold font-sans text-sm sm:text-[12px] md:text-lg lg:text-xl dark:text-slate-200'>{userData?.email}</p>
+                            <p className='text-[12px] sm:text-lg md:text-xl lg:text-2xl font-bold font-sans dark:text-slate-200'>{userData?.name || "userName"}</p>
+                            <p className='font-semibold font-sans text-sm sm:text-[12px] md:text-lg lg:text-xl dark:text-slate-200'>{userData?.email || "userEmail"}</p>
                         </div>
                     </div>
                     <div className='flex gap-14 pb-16'>
@@ -106,7 +121,7 @@ const Profile = () => {
                         )}
                         {followersDetails.map((follower) => (
                             <div className='flex items-center mx-auto mt-5'>
-                                <img src={userImage} alt="" className='w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-16 lg:h-16 rounded-full' />
+                                <img src={follower.ProfilePhoto} alt="" className='w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 lg:w-12 lg:h-12 rounded-full' />
                                 <p key={follower.$id} className='ml-4 text-[12px] sm:text-lg md:text-xl lg:text-2xl font-semibold dark:text-slate-200'>{follower.Name}</p>
                             </div>
                         ))}
@@ -122,7 +137,7 @@ const Profile = () => {
                         )}
                         {followingDetails.map((following) => (
                             <div className='flex items-center mx-auto mt-5'>
-                                <img src={userImage} alt="" className='w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-16 lg:h-16 rounded-full' />
+                                <img src={following.ProfilePhoto} alt="" className='w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 lg:w-12 lg:h-12 rounded-full' />
                                 <p key={following.$id} className='ml-4 text-[12px] sm:text-lg md:text-xl lg:text-2xl font-semibold dark:text-slate-200'>{following.Name}</p>
                             </div>
                         ))}

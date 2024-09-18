@@ -1,10 +1,11 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { InputTxt, RTE } from '../components';
 import appwriteService from '../appwrite/Config';
 import { useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 import { check, no } from '../components';
+import authService from '../appwrite/Auth';
 
 
 export default function AddPost({ post }) {
@@ -17,8 +18,19 @@ export default function AddPost({ post }) {
     },
   });
 
+  const [userData, setUserData] = useState({});
   const navigate = useNavigate();
-  const userData = useSelector((state) => state.auth.userData)
+  // const userData = useSelector((state) => state.auth.userData)
+  // console.log(userData);
+
+  useEffect(() => {
+    const getcurrentuser = async () => {
+      const user = await authService.getCurrentUser();
+      setUserData(user)
+    }
+    getcurrentuser();
+  }, [])
+
   const [postDone, setPostDone] = useState(false);
   const [postCreate, setPostCreate] = useState(false);
   const [postNotCreate, setPostNotCreate] = useState(false);
@@ -65,7 +77,7 @@ export default function AddPost({ post }) {
             navigate(`/post/${dbPost.$id}`);
           }, 2000);
         }
-      }else {
+      } else {
         setPostDone(false);
         const file = await appwriteService.uploadFile(data.image[0]);
 
@@ -92,6 +104,7 @@ export default function AddPost({ post }) {
     catch (error) {
       setPostDone(false);
       setPostNotCreate(true);
+      console.log("error", error);
     } finally {
       setTimeout(() => {
         setPostCreate(false);
@@ -179,24 +192,23 @@ export default function AddPost({ post }) {
           <div className="mb-4">
             <label className="block text-xs sm:text-sm md:text-md lg:text-lg font-medium text-gray-700 dark:text-slate-200">Status:</label>
             <select
-              className="text-xs sm:text-sm md:text-md lg:text-lg block w-auto mt-1 px-4 py-2 border border-gray-300 dark:text-gray-900 bg-white rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="text-xs sm:text-sm md:text-[12px] lg:text-lg block w-auto mt-1 px-4 py-2 border border-gray-300 dark:text-gray-900 bg-white rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               {...register("status", { required: true })}
             >
-              <option className='dark:text-gray-900 text-sm sm:text-md md:text-lg lg:text-xl'>Active</option>
-              <option className='dark:text-gray-900 text-sm sm:text-md md:text-lg lg:text-xl'>Inactive</option>
+              <option className='dark:text-gray-900 text-xs sm:text-sm md:text-[12px] lg:text-lg'>Active</option>
+              <option className='dark:text-gray-900 text-xs sm:text-sm md:text-[12px] lg:text-lg'>Inactive</option>
             </select>
           </div>
-
           <button
             type="submit"
             bgColor={post ? "bg-green-500" : undefined}
-            // onClick={onchange}
+            onClick={onchange}
             className={`text-sm sm:text-md md:text-lg lg:text-xl w-full py-2 px-4 text-white rounded-md shadow-md transition duration-150 ease-in-out ${post ? "bg-green-500 hover:bg-green-600" : "bg-blue-500 hover:bg-blue-600"}`}
           >
             {post ? "Update Post" : "Submit Post"}
           </button>
           {postCreate && (
-            <div className="fixed inset-0 flex items-center justify-center">
+            <div className="fixed inset-0 flex items-center justify-center z-50">
               <div className="bg-slate-100 border-2 text-black p-4 sm:p-5 md:p-6 rounded-lg shadow-lg text-center backdrop-blur-sm w-auto flex gap-3 md:gap-4">
                 <img src={check} alt="" className='w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8' />
                 <span className="text-sm sm:text-md md:text-lg lg:text-xl font-semibold text-balck">Post is successfully upload</span>
@@ -204,7 +216,7 @@ export default function AddPost({ post }) {
             </div>
           )}
           {postNotCreate && (
-            <div className="fixed inset-0 flex items-center justify-center">
+            <div className="fixed inset-0 flex items-center justify-center z-50">
               <div className="bg-slate-100 border-2 text-black p-4 sm:p-5 md:p-6 rounded-lg shadow-lg text-center backdrop-blur-sm w-auto flex  gap-3 md:gap-4">
                 <img src={no} alt="" className='w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8' />
                 <span className="text-sm sm:text-md md:text-lg lg:text-xl font-semibold text-balck">Post is not upload successfully</span>

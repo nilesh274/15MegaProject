@@ -1,9 +1,10 @@
 import conf from '../conf/conf.js'
-import { Client, Account, ID } from "appwrite";
+import { Client, Account, ID, Avatars } from "appwrite";
 
 export class AuthService{
     client = new Client();
     account;
+    avatars
 
     constructor(){
         this.client
@@ -11,6 +12,7 @@ export class AuthService{
             .setProject(conf.appwriteProjectId);
 
         this.account = new Account(this.client);
+        this.avatars = new Avatars(this.client);
     }
 
     async createAccount({email, password, name}) {
@@ -52,7 +54,16 @@ export class AuthService{
         } catch (error) {
             console.log("Appwrite service :: logout :: error", error);
         }
-    }    
+    }  
+    
+    avatar({Name}){
+        try {
+            return this.avatars.getInitials(Name);
+        } catch (error) {
+            console.log("Appwrite service :: avatar :: error", error);
+            throw error;
+        }
+    }
 }
 
 const authService = new AuthService();

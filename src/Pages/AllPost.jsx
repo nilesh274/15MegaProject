@@ -11,6 +11,8 @@ const AllPost = () => {
             if (response) {
                 setPosts(response.documents);
             }
+            // console.log(posts);
+            
             setLoading(false);
         }).catch(() => {
             setLoading(false);
