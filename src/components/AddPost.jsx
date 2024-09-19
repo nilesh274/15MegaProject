@@ -21,7 +21,7 @@ export default function AddPost({ post }) {
   const [userData, setUserData] = useState({});
   const navigate = useNavigate();
   // const userData = useSelector((state) => state.auth.userData)
-  // console.log(userData);
+
 
   useEffect(() => {
     const getcurrentuser = async () => {
@@ -31,25 +31,28 @@ export default function AddPost({ post }) {
     getcurrentuser();
   }, [])
 
+  // console.log(userData);
+
   const [postDone, setPostDone] = useState(false);
   const [postCreate, setPostCreate] = useState(false);
   const [postNotCreate, setPostNotCreate] = useState(false);
+  const [Error, setError] = useState('');
   // console.log(userData.$id);
 
-  const onchange = (e) => {
-    e.preventDefault();
-    if (postDone) {
-      setPostCreate(true);
-      setTimeout(() => {
-        setPostCreate(false);
-      }, 2000)
-    } else {
-      setPostNotCreate(true);
-      setTimeout(() => {
-        setPostNotCreate(false);
-      }, 2000)
-    }
-  }
+  // const onchange = (e) => {
+  //   e.preventDefault();
+  //   if (postDone) {
+  //     setPostCreate(true);
+  //     setTimeout(() => {
+  //       setPostCreate(false);
+  //     }, 2000)
+  //   } else {
+  //     setPostNotCreate(true);
+  //     setTimeout(() => {
+  //       setPostNotCreate(false);
+  //     }, 2000)
+  //   }
+  // }
 
 
 
@@ -68,7 +71,7 @@ export default function AddPost({ post }) {
           featuredImage: file ? file.$id : undefined,
         });
 
-        console.log(file);
+        // console.log(file);
 
         if (dbPost) {
           setPostDone(true);
@@ -80,16 +83,17 @@ export default function AddPost({ post }) {
       } else {
         setPostDone(false);
         const file = await appwriteService.uploadFile(data.image[0]);
+        console.log(file);
 
 
         if (file) {
           // console.log(userData);
-
           const fileId = file.$id;
           data.featuredImage = fileId;
-          // console.log(fileId || "not there");
 
           const dbPost = await appwriteService.createPost({ ...data, userId: userData.$id, userName: userData.name });
+          // console.log(dbPost);
+
 
           if (dbPost) {
             setPostDone(true);
@@ -103,11 +107,17 @@ export default function AddPost({ post }) {
     }
     catch (error) {
       setPostDone(false);
+      // console.log("error", error);
+      if (error.message && error.message.includes("requested ID already exists")) {
+        setError("Title is Exists please change the title");
+      } else {
+        setError("Post is not upload successfully");
+      }
       setPostNotCreate(true);
-      console.log("error", error);
     } finally {
       setTimeout(() => {
         setPostCreate(false);
+        setError("");
         setPostNotCreate(false);
       }, 2000);
     }
@@ -202,7 +212,7 @@ export default function AddPost({ post }) {
           <button
             type="submit"
             bgColor={post ? "bg-green-500" : undefined}
-            onClick={onchange}
+            // onClick={onchange}
             className={`text-sm sm:text-md md:text-lg lg:text-xl w-full py-2 px-4 text-white rounded-md shadow-md transition duration-150 ease-in-out ${post ? "bg-green-500 hover:bg-green-600" : "bg-blue-500 hover:bg-blue-600"}`}
           >
             {post ? "Update Post" : "Submit Post"}
@@ -219,7 +229,7 @@ export default function AddPost({ post }) {
             <div className="fixed inset-0 flex items-center justify-center z-50">
               <div className="bg-slate-100 border-2 text-black p-4 sm:p-5 md:p-6 rounded-lg shadow-lg text-center backdrop-blur-sm w-auto flex  gap-3 md:gap-4">
                 <img src={no} alt="" className='w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8' />
-                <span className="text-sm sm:text-md md:text-lg lg:text-xl font-semibold text-balck">Post is not upload successfully</span>
+                <span className="text-sm sm:text-md md:text-lg lg:text-xl font-semibold text-balck">{Error}</span>
               </div>
             </div>
           )}

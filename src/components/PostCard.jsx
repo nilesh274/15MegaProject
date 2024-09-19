@@ -32,7 +32,7 @@ const PostCard = ({ $id, title, featuredImage, userName, userId }) => {
         <div className="flex flex-col border-[1px] rounded-2xl w-full mx-auto p-4 dark:bg-[#1a1b33] h-auto">
             <Link to={`/post/${$id}`}>
                 <div className="flex items-center mb-4">
-                    <img src={postPhoto || userImage} alt="profilePhoto" className="h-7 w-7 sm:w-8 sm:h-8 md:w-8 md:h-8 rounded-full" />
+                    <img src={postPhoto || userImage} alt="profilePhoto" className="bg-white dark:text-white h-7 w-7 sm:w-8 sm:h-8 md:w-8 md:h-8 rounded-full" />
                     <p className="ml-3 text-left font-bold text-xs sm:text-sm md:text-md lg:text-lg dark:text-slate-200">{userName}</p>
                 </div>
                 <img
@@ -50,7 +50,7 @@ const PostCard = ({ $id, title, featuredImage, userName, userId }) => {
         <div className="flex flex-col border-[1px] rounded-2xl w-full mx-auto p-4 dark:bg-[#1a1b33] h-auto">
             <Link to={`/post/${$id}`}>
                 <div className="flex items-center mb-4">
-                    <img src={postPhoto || userImage} alt="profilePhoto" className="h-7 w-7 sm:w-8 sm:h-8 md:w-8 md:h-8 rounded-full" />
+                    <img src={postPhoto || userImage} alt="profilePhoto" className="bg-white dark:text-white h-7 w-7 sm:w-8 sm:h-8 md:w-8 md:h-8 rounded-full" />
                     <p className="ml-3 text-left font-bold text-xs sm:text-sm md:text-md lg:text-lg dark:text-slate-200">{userName}</p>
                 </div>
                 <img

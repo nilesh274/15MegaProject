@@ -104,7 +104,7 @@ export default function Post() {
     <div className="flex flex-col items-center justify-center min-h-full bg-gray-100 p-10 sm:p-12 md:p-14 lg:p-16 dark:bg-[#000000]">
       <div className="w-3xl w-full bg-white shadow-lg rounded-lg overflow-hidden dark:bg-[#1a1b33]">
         <div className="flex flex-wrap items-center sm:mb-4 px-6 pt-6">
-          <img src={postPhoto || userImage} alt="profilePhoto" className="dark:text-white h-10 w-10 sm:h-12 sm:w-12 md:h-14 md:w-14 lg:w-16 lg:h-16 rounded-full object-cover" />
+          <img src={postPhoto || userImage} alt="profilePhoto" className="bg-white dark:text-white h-10 w-10 sm:h-12 sm:w-12 md:h-14 md:w-14 lg:w-16 lg:h-16 rounded-full object-cover" />
           <p className="ml-3 text-left font-bold text-xl sm:text-2xl md:text-3xl lg:text-4xl dark:text-slate-200">{post.userName}</p>
         </div>
         <div className="flex justify-center p-6">
