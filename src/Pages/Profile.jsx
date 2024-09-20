@@ -109,8 +109,8 @@ const Profile = () => {
                         </div>
                     </div>
                     <div className='flex gap-14 pb-16'>
-                        <button className='bg-[#1980e6] p-2 md:p-4 text-sm sm:text-[12px] md:text-lg lg:text-xl border-[1px] border-blue-500 hover:bg-transparent rounded-xl duration-500 font-sans font-semibold h-10 md:h-14 flex justify-center items-center shadow-md dark:hover:text-blue-500' onClick={handlefollowing}>{following}  Following</button>
-                        <button className='hover:bg-[#1980e6] p-2 md:p-4 text-sm sm:text-[12px] md:text-lg lg:text-xl border-[1px] border-blue-500 bg-transparent rounded-xl duration-500 font-sans font-semibold h-10 md:h-14 flex justify-center items-center shadow-md dark:text-blue-500 dark:hover:text-black' onClick={handleFollower}>{follower} Follower</button>
+                        <button className='bg-[#1980e6] p-2 md:p-4 text-sm sm:text-base md:text-[12px] lg:text-lg border-[1px] border-blue-500 hover:bg-transparent rounded-xl duration-500 font-sans font-semibold h-10 md:h-14 flex justify-center items-center shadow-md dark:hover:text-blue-500' onClick={handlefollowing}>{following}  Following</button>
+                        <button className='hover:bg-[#1980e6] p-2 md:p-4 text-sm sm:text-base md:text-[12px] lg:text-lg border-[1px] border-blue-500 bg-transparent rounded-xl duration-500 font-sans font-semibold h-10 md:h-14 flex justify-center items-center shadow-md dark:text-blue-500 dark:hover:text-black' onClick={handleFollower}>{follower} Follower</button>
                     </div>
                 </div>
                 {isVisible && (
@@ -145,7 +145,7 @@ const Profile = () => {
                 )}
                 <div>
                     <button
-                        className='text-sm sm:text-[12px] md:text-lg lg:text-xl bg-blue-500 hover:scla p-4 lg:p-8 rounded-xl font-semibold h-12 lg:h-16 flex justify-center items-center ml-5'>
+                        className='text-sm sm:text-base md:text-[12px] lg:text-lg bg-blue-500 hover:scla px-4 py-2 rounded-xl font-semibold h-auto flex justify-center items-center ml-5'>
                         {postCnt} post
                     </button>
                     {postCnt === 0 && (

@@ -8,7 +8,7 @@ const ProfilePost = ({$id, title, featuredImage}) => {
             <Link 
             to={`/post/${$id}`}
             >
-            <img src={appwriteService.getFilePreview(featuredImage)} alt={title} class="w-[90px] h-[70px] sm:w-44 sm:h-44 md:w-56 md:h-56 lg:w-72 lg:h-72 xl:w-80 xl:h-80 object-fit"/>
+            <img src={appwriteService.getFilePreview(featuredImage)} alt={title} class="w-[105px] h-[85px] sm:w-44 sm:h-44 md:w-56 md:h-56 lg:w-72 lg:h-72 xl:w-80 xl:h-80 object-fit"/>
             </Link>
         </div>
     )
