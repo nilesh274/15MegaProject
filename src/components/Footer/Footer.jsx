@@ -32,7 +32,7 @@ const Footer = () => {
                                 <img
                                     src={logoWhite}
                                     alt="logo"
-                                    className='w-10 h-7 sm:w-12 sm:h-8 md:w-14 md:h-9 lg:w-16 lg:h-10 rounded-lg'/>
+                                    className='w-10 h-7 sm:w-12 sm:h-8 md:w-14 md:h-9 lg:w-16 lg:h-10 rounded-lg' />
                                 <p className='text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold'>VIBΞLY</p>
                             </div>
                             <div className='md:flex ml-auto'>
@@ -51,25 +51,22 @@ const Footer = () => {
                                         >
                                             About us
                                         </Link>
-                                    </div>
-                                    <div className='flex md:gap-10 flex-col md:flex-row mr-5 sm:mr-7 md:mr-0'>
-                                        <p className='text-xs font-bold sm:text-sm md:text-md md:hidden mb-1 text-sky-400'>Contact</p>
+
                                         <Link
-                                            to="/contact"
+                                            to="/features"
                                             className='hover:text-[#6368e5] hover:underline'
                                         >
-                                            Contact us
+                                            Features
                                         </Link>
-
+                                    </div>
+                                    <div className='flex md:gap-10 flex-col md:flex-row mr-2 sm:mr-7 md:mr-0'>
+                                        <p className='text-xs font-bold sm:text-sm md:text-md md:hidden mb-1 text-sky-400'>Contact</p>
                                         <Link
                                             to="/helpcenter"
                                             className='hover:text-[#6368e5] hover:underline'
                                         >
                                             Help Center
                                         </Link>
-                                    </div>
-                                    <div className='flex md:gap-10 flex-col md:flex-row md:mr-0'>
-                                        <p className='text-xs font-bold sm:text-sm md:text-md md:hidden mb-1 text-sky-400'>Features</p>
                                         <Link
                                             to="/userguideline"
                                             className='hover:text-[#6368e5] hover:underline'
@@ -77,10 +74,10 @@ const Footer = () => {
                                             GuideLines
                                         </Link>
                                         <Link
-                                            to="/features"
+                                            to="/contact"
                                             className='hover:text-[#6368e5] hover:underline'
                                         >
-                                            Features
+                                            Contact us
                                         </Link>
                                     </div>
                                 </div>

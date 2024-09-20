@@ -155,7 +155,7 @@ const Profile = () => {
                         </div>
                     )}
                 </div>
-                <div class="grid grid-cols-4 md:grid-cols-5 gap-2 mx-10 sm:mx-16 h-auto mt-10">
+                <div class="grid grid-cols-4 md:grid-cols-5 gap-2 mx-5 sm:mx-16 h-auto mt-10">
                     {posts.length !== 0 && (posts.map((post) => {
                         const isAuthor = post && userData ? post.userId === userData?.$id : false;
                         return isAuthor ? (

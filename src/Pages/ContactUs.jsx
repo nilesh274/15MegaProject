@@ -72,12 +72,12 @@ const ContactUs = () => {
                                             ></textarea>
                                         </label>
                                     </div>
-                                    <div className="flex px-4 py-3 justify-start text-base sm:text-sm md:text-[12px] lg:text-lg">
+                                    <div className="flex px-4 py-3 justify-start ">
                                         <Link>
                                             <input
                                                 to='/'
                                                 type='Submit'
-                                                className="flex w-auto cursor-pointer items-center justify-center overflow-hidden rounded-xl h-14 px-4 bg-[#1980e6] text-slate-50 text-xl font-bold leading-normal tracking-[0.015em] font-sans hover:bg-[#2877c6] hover:scale-105 duration-500"
+                                                className="text-sm sm:text-base md:text-[12px] lg:text-lg flex w-auto cursor-pointer items-center justify-center overflow-hidden rounded-xl py-2 px-3 sm:py-3 sm:px-4 md:py-3 md:px-5 lg:px-6  bg-[#1980e6] text-slate-50 font-bold tracking-[0.015em] font-sans hover:bg-[#2877c6] hover:scale-105 duration-500"
                                                 onClick={onchange}
                                             />
                                         </Link>
