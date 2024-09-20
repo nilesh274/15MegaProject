@@ -87,8 +87,8 @@ const ContactUs = () => {
                             {showAlert && (
                                 <div className="fixed inset-0 flex items-center justify-center">
                                     <div className="bg-slate-100 border-2 text-black p-6 rounded-lg shadow-lg text-center backdrop-blur-sm w-auto flex gap-4">
-                                        <img src={check} alt="" className='w-8 h-8'/>
-                                        <span className="text-xl font-semibold text-balck">Your request has been submitted!</span>
+                                        <img src={check} alt="" className='w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8'/>
+                                        <span className="text-base sm:text-sm md:text-[12px] lg:text-lg font-semibold text-balck">Your request has been submitted!</span>
                                     </div>
                                 </div>
                             )}

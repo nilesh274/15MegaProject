@@ -31,10 +31,10 @@ const AboutUs = () => {
                     </div>
                     <div className='py-4'></div>
                     <div>
-                        <p className='text-black text-[5px] sm:text-[14px] md:text-[16px] lg:text-[22px] font-semibold font-sans lg:px-14 md:py-3 dark:text-sky-400'>
+                        <p className='text-black text-base sm:text-sm md:text-[12px] lg:text-lg font-semibold font-sans lg:px-14 md:py-3 dark:text-sky-400'>
                             Key Features
                         </p>
-                        <p className='text-black text-[5px] sm:text-[12px] md:text-[14px] lg:text-[18px] font-sans lg:px-14 py-1 text-justify'>
+                        <p className='text-black text-base sm:text-sm md:text-[12px] lg:text-lg font-sans lg:px-14 py-1 text-justify'>
                             <ul className='dark:text-slate-200'>
                                 <li><span className='font-semibold dark:text-slate-200'>Add Post:</span> Upload the life achievement on the vibely.</li>
                                 <li><span className='font-semibold dark:text-slate-200'>User Profiles:</span> Customize and showcase your interests and achievements.</li>
@@ -45,10 +45,10 @@ const AboutUs = () => {
                     </div>
                     <div className='py-4'></div>
                     <div>
-                        <p className='text-black text-[5px] sm:text-[14px] md:text-[16px] lg:text-[22px] font-semibold font-sans lg:px-14 md:py-3 dark:text-sky-400'>
+                        <p className='text-black text-base sm:text-sm md:text-[12px] lg:text-lg font-semibold font-sans lg:px-14 md:py-3 dark:text-sky-400'>
                             Why Choose Us?
                         </p>
-                        <p className='text-black text-[5px] sm:text-[12px] md:text-[14px] lg:text-[18px] font-sans lg:px-14 py-1 text-justify'>
+                        <p className='text-black text-base sm:text-sm md:text-[12px] lg:text-lg font-sans lg:px-14 py-1 text-justify'>
                             <ul className='dark:text-slate-200'>
                                 <li><span className='font-semibold dark:text-slate-200'>Trust:</span> We prioritize building trust with our users through transparency.</li>
                                 <li><span className='font-semibold dark:text-slate-200'>Community Support:</span> Dedicated support teams for prompt user assistance.</li>
@@ -59,10 +59,10 @@ const AboutUs = () => {
                     </div>
                     <div className='py-4'></div>
                     <div>
-                        <p className='text-black text-[5px] sm:text-[14px] md:text-[16px] lg:text-[22px] font-semibold font-sans lg:px-14 md:py-3 dark:text-sky-400'>
+                        <p className='text-black text-base sm:text-sm md:text-[12px] lg:text-lg font-semibold font-sans lg:px-14 md:py-3 dark:text-sky-400'>
                             Our Future Goals
                         </p>
-                        <p className='text-black text-[5px] sm:text-[12px] md:text-[14px] lg:text-[18px] font-sans lg:px-14 py-1 text-justify'>
+                        <p className='text-black text-base sm:text-sm md:text-[12px] lg:text-lg font-sans lg:px-14 py-1 text-justify'>
                             <ul className='dark:text-slate-200'>
                                 <li><span className='font-semibold dark:text-slate-200'>Enhance Features:</span> Continuously improve and expand our platform's capabilities.</li>
                                 <li><span className='font-semibold dark:text-slate-200'>User Growth:</span> Reach 1000 active users worldwide.</li>
@@ -73,10 +73,10 @@ const AboutUs = () => {
                     </div>
                     <div className='py-4'></div>
                     <div>
-                        <p className='text-black text-[5px] sm:text-[14px] md:text-[16px] lg:text-[22px] font-semibold font-sans lg:px-14 md:py-3 dark:text-sky-400'>
+                        <p className='text-black text-base sm:text-sm md:text-[12px] lg:text-lg font-semibold font-sans lg:px-14 md:py-3 dark:text-sky-400'>
                             Contact Us
                         </p>
-                        <p className='text-black text-[5px] sm:text-[12px] md:text-[14px] lg:text-[18px] font-sans lg:px-14 py-1 text-justify'>
+                        <p className='text-black text-base sm:text-sm md:text-[12px] lg:text-lg font-sans lg:px-14 py-1 text-justify'>
                             <ul className='dark:text-slate-200'>
                                 <li><span className='font-semibold dark:text-slate-200'>Email:</span> nileshparmarofficial274@gmail.com</li>
                                 <li><span className='font-semibold dark:text-slate-200'>Phone:</span> +91 8928066944</li>
@@ -86,10 +86,10 @@ const AboutUs = () => {
                     </div>
                     <div className='py-4'></div>
                     <div>
-                        <p className='text-black text-[5px] sm:text-[14px] md:text-[16px] lg:text-[22px] font-semibold font-sans lg:px-14 md:py-3 dark:text-sky-400'>
+                        <p className='text-black text-base sm:text-sm md:text-[12px] lg:text-lg font-semibold font-sans lg:px-14 md:py-3 dark:text-sky-400'>
                             Join Us on Our Journey
                         </p>
-                        <p className='text-black text-[5px] sm:text-[12px] md:text-[14px] lg:text-[18px] font-sans lg:px-14 py-1 text-justify'>
+                        <p className='text-black text-base sm:text-sm md:text-[12px] lg:text-lg font-sans lg:px-14 py-1 text-justify'>
                             <ul className='dark:text-slate-200'>
                                 <li>Become a part of the SocialNet community today!</li>
                                 <li>Sign Up and start connecting with friends, sharing stories, and discovering new opportunities.</li>

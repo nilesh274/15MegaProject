@@ -114,7 +114,7 @@ const LikeBtn = ({slug}) => {
   return (
         <button
           onClick={handleLike}
-          className={`flex items-center p-2 rounded-lg ${
+          className={`flex items-center py-auto px-auto rounded-lg ${
             islike ? "text-blue-500" : "text-gray-700 dark:text-white"
           }`}
         >

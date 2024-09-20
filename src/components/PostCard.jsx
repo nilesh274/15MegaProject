@@ -59,7 +59,7 @@ const PostCard = ({ $id, title, featuredImage, userName, userId }) => {
                     className="w-full h-40 sm:h-44 md:h-48 lg:h-52 object-cover hover:object-scale-down rounded-lg mb-4 dark:text-slate-200 text-black text-sm sm:text-md md:text-lg lg:text-xl"
                 />
             </Link>
-            <h2 className="text-sm sm:text-md md:text-lg lg:text-xl font-semibold text-left mb-2 dark:text-slate-200">{title}</h2>
+            <h2 className="text-sm sm:text-[12px] md:text-lg lg:text-xl font-semibold text-left mb-2 dark:text-slate-200">{title}</h2>
             <div className="flex flex-wrap space-x-2 items-center w-full">
                 <LikeBtn slug={$id} />
                 <FollowBtn userId={userId} slug={$id}/>

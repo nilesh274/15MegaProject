@@ -221,7 +221,7 @@ export default function AddPost({ post }) {
             <div className="fixed inset-0 flex items-center justify-center z-50">
               <div className="bg-slate-100 border-2 text-black p-4 sm:p-5 md:p-6 rounded-lg shadow-lg text-center backdrop-blur-sm w-auto flex gap-3 md:gap-4">
                 <img src={check} alt="" className='w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8' />
-                <span className="text-sm sm:text-md md:text-lg lg:text-xl font-semibold text-balck">Post is successfully upload</span>
+                <span className="text-base sm:text-sm md:text-[12px] lg:text-lg font-semibold text-balck">Post is successfully upload</span>
               </div>
             </div>
           )}
@@ -229,7 +229,7 @@ export default function AddPost({ post }) {
             <div className="fixed inset-0 flex items-center justify-center z-50">
               <div className="bg-slate-100 border-2 text-black p-4 sm:p-5 md:p-6 rounded-lg shadow-lg text-center backdrop-blur-sm w-auto flex  gap-3 md:gap-4">
                 <img src={no} alt="" className='w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8' />
-                <span className="text-sm sm:text-md md:text-lg lg:text-xl font-semibold text-balck">{Error}</span>
+                <span className="text-base sm:text-sm md:text-[12px] lg:text-lg font-semibold text-balck">{Error}</span>
               </div>
             </div>
           )}

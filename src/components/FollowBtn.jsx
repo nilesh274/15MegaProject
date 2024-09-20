@@ -54,7 +54,7 @@ const FollowBtn = ({ userId, slug }) => {
         await appwriteService.updateUserDetails(currentUser.$id, {following: currentUserUpdateFollowing})
         setmessage(<div className='flex items-center text-center justify-center gap-3 sm:gap-4 md:gap-5 dark:text-black'>
           <img src={unfollow} className='w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20'/>
-          <p className='text-sm sm:text-md md:text-lg lg:text-xl'>Connection removed. You won't see updates from <span className='font-bold dark:text-black'>"{PostUser.UserName}"</span></p>
+          <p className='text-sm sm:text-[12px] md:text-lg lg:text-xl'>Connection removed. You won't see updates from <span className='font-bold dark:text-black'>"{PostUser.UserName}"</span></p>
         </div>);
         setTimeout(() => {
           navigate('/profile');
@@ -69,7 +69,7 @@ const FollowBtn = ({ userId, slug }) => {
         await appwriteService.updateUserDetails(currentUser.$id, { following: currentUserUpdateFollowing })
         setmessage(<div className='flex items-center text-center justify-center gap-3 sm:gap-4 md:gap-5 dark:text-black'>
           <img src={follow} className='w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20'/>
-          <p className='text-sm sm:text-md md:text-lg lg:text-xl'>"You've started following <span className='font-bold dark:text-black text-justify'>"{PostUser.UserName}"</span>! Explore their world."</p>
+          <p className='text-sm sm:text-[12px] md:text-lg lg:text-xl'>"You've started following <span className='font-bold dark:text-black text-justify'>"{PostUser.UserName}"</span>! Explore their world."</p>
         </div>);
         setTimeout(() => {
           navigate(`/post/${post.$id}`);
