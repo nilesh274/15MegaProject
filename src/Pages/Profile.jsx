@@ -117,7 +117,7 @@ const Profile = () => {
                     <div className='border-[1px] rounded-xl mb-6 px-5 h-auto py-5 shadow-xl mx-auto w-auto'>
                         <span className='font-semibold text-lg sm:text-xl md:text-2xl lg:text-3xl dark:text-slate-200'>Follower</span>
                         {followersDetails.length <= 0 && (
-                            <p className='justify-center text-center m-20 text-sm sm:text-[12px] md:text-lg lg:text-xl dark:text-slate-200'>You do not have any followers.......</p>
+                            <p className='justify-center text-center m-4 md:m-20 text-sm sm:text-[12px] md:text-lg lg:text-xl dark:text-slate-200'>You do not have any followers.......</p>
                         )}
                         {followersDetails.map((follower) => (
                             <div className='flex items-center mx-auto mt-5'>
@@ -133,7 +133,7 @@ const Profile = () => {
                     <div className='border-[1px] rounded-xl mb-6 px-5 h-auto py-5 shadow-xl mx-auto'>
                         <span className='font-semibold text-lg sm:text-xl md:text-2xl lg:text-3xl dark:text-slate-200'>Following</span>
                         {followingDetails.length <= 0 && (
-                            <p className='justify-center text-center m-20 text-sm sm:text-[12px] md:text-lg lg:text-xl dark:text-slate-200'>You are not following anyone......</p>
+                            <p className='justify-center text-center m-4 md:m-20 text-sm sm:text-[12px] md:text-lg lg:text-xl dark:text-slate-200'>You are not following anyone......</p>
                         )}
                         {followingDetails.map((following) => (
                             <div className='flex items-center mx-auto mt-5'>
