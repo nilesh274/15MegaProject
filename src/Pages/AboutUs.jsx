@@ -3,7 +3,7 @@ import React from 'react';
 const AboutUs = () => {
     return (
         <>
-            <div className='px-10 py-9 h-full bg-white shadow-lg dark:bg-black '>
+            <div className='mx-auto px-5 py-10 h-full bg-white shadow-lg dark:bg-black '>
                 <div className="@container">
                     <div className="pb-8">
                         <div
