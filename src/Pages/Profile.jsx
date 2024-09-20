@@ -96,10 +96,7 @@ const Profile = () => {
 
     return (
         <div className="dark:bg-[#000000] p-5 sm:p-7 md:p-8 lg:p-10">
-            <div className='shadow-2xl p-10 border-2 rounded-2xl dark:bg-[#1a1b33] dark:border-none'>
-                <div className='mt-7 ml-8 mb-14 w-1/3'>
-                    <p className='text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold font-sans dark:text-slate-200'>Profile</p>
-                </div>
+            <div className='shadow-2xl p-5 md:p-8 border-[1px] rounded-2xl dark:bg-[#1a1b33] dark:border-none'>
                 <div className='flex mr-auto flex-wrap lg:gap-96 justify-center items-center'>
                     <div className='flex gap-5 lg:gap-15 items-center pb-10 mr-auto mb-7'>
                         <img src={photo || userImage} alt="Profile Photo" className='bg-white dark:text-white rounded-full h-[35px] w-[35px] sm:h-[40px] sm:w-[40px] md:h-[45px] md:w-[45px] lg:w-[50px] lg:h-[50px] hover:scale-105 duration-1000 dark:hover:scale-110' />
