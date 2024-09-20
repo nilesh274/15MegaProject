@@ -77,7 +77,7 @@ const ContactUs = () => {
                                             <input
                                                 to='/'
                                                 type='Submit'
-                                                className="flex min-w-[100px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-14 px-4 bg-[#1980e6] text-slate-50 text-xl font-bold leading-normal tracking-[0.015em] font-sans hover:bg-[#2877c6] hover:scale-105 duration-500"
+                                                className="flex w-auto cursor-pointer items-center justify-center overflow-hidden rounded-xl h-14 px-4 bg-[#1980e6] text-slate-50 text-xl font-bold leading-normal tracking-[0.015em] font-sans hover:bg-[#2877c6] hover:scale-105 duration-500"
                                                 onClick={onchange}
                                             />
                                         </Link>
