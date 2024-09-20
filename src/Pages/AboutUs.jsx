@@ -17,10 +17,10 @@ const AboutUs = () => {
                         About us
                     </h1>
                     <div>
-                        <p className='text-black text-[5px] sm:text-[14px] md:text-[16px] lg:text-[22px] font-semibold font-sans lg:px-14 md:py-3 dark:text-sky-400'>
+                        <p className='text-black text-base sm:text-sm md:text-[12px] lg:text-lg font-semibold font-sans lg:px-14 md:py-3 dark:text-sky-400'>
                             Our mission
                         </p>
-                        <p className='text-black text-[5px] sm:text-[12px] md:text-[14px] lg:text-[18px] font-sans lg:px-14 py-1 text-justify dark:text-slate-200'>
+                        <p className='text-black text-base sm:text-sm md:text-[12px] lg:text-lg font-sans lg:px-14 py-1 text-justify dark:text-slate-200'>
                             vibely is more than just a social media platform; it's a movement dedicated to connecting people and fostering genuine human interaction.
                             Our mission is to empower users to express themselves freely, build communities, and engage in meaningful conversations.
                             We uphold the values of integrity, inclusivity, innovation, and community, ensuring that our platform is a space where everyone feels safe and valued.

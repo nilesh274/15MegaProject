@@ -72,7 +72,7 @@ const ContactUs = () => {
                                             ></textarea>
                                         </label>
                                     </div>
-                                    <div className="flex px-4 py-3 justify-start">
+                                    <div className="flex px-4 py-3 justify-start text-base sm:text-sm md:text-[12px] lg:text-lg">
                                         <Link>
                                             <input
                                                 to='/'
