@@ -145,8 +145,8 @@ export default function AddPost({ post }) {
   }, [watch, slugTransform, setValue]);
 
   return (
-    <div className='shadow-lg p-10 bg-blue-50 dark:bg-[#000000]'>
-      <div className='text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-4 hover:underline dark:text-slate-200'>
+    <div className='shadow-lg pb-10 bg-blue-50 dark:bg-[#000000]'>
+      <div className='text-xl sm:text-2xl md:text-3xl lg:text-4xl pt-5 pl-5 font-bold mb-4 hover:underline dark:text-slate-200'>
         AddPost
       </div>
       <form onSubmit={handleSubmit(submit)} className="flex flex-wrap bg-blue-200 dark:bg-[#1a1b33] dark:text-slate-200 shadow-lg rounded-lg p-6 space-y-6 mt-10 m-5">
