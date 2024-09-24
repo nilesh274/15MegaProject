@@ -181,7 +181,7 @@ export default function AddPost({ post }) {
         <div className="w-full md:w-1/3 px-2">
           <div className="mb-4">
             <label className="block text-xs sm:text-sm md:text-md lg:text-lg font-medium text-gray-700 dark:text-slate-200">Featured Image:</label>
-            <p className='block text-xs sm:text-sm md:text-md lg:text-lg font-medium text-gray-700 dark:text-slate-200'>Image size is less than 3MB</p>
+            {/* <p className='block text-xs sm:text-sm md:text-md lg:text-lg font-medium text-gray-700 dark:text-slate-200'>Image size is less than 3MB</p> */}
             <input
               type="file"
               accept="image/png, image/jpg, image/jpeg, image/gif"
