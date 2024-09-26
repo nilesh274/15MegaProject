@@ -40,6 +40,7 @@ const SignUp = () => {
 
                     if (userDetail && AuthUser) {
                         navigate("/login")
+                        window.location.reload();
                     }
                 }
             }

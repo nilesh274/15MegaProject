@@ -26,6 +26,7 @@ const Login = () => {
                     // console.log("User data after login:", userData);
                     dispatch(authLogin(userData));
                     navigate("/"); 
+                    window.location.reload();
                 }
             }
         } catch (error) {
